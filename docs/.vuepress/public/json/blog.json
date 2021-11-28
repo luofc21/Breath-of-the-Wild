@@ -1,0 +1,78 @@
+{
+    "tag": [{
+            "name": "vue",
+            "type": "vue"
+        },
+        {
+            "name": "css",
+            "type": "css"
+        },
+        {
+            "name": "javascript",
+            "type": ""
+        },
+        {
+            "name": "小程序",
+            "type": "applets"
+        },
+        {
+            "name": "vuepress",
+            "type": "vuepress"
+        },
+        {
+            "name": "转",
+            "type": "info"
+        },
+        {
+            "name": "music",
+            "type": "music",
+            "icon": "say-my-life-i say-my-life-i-musicnote"
+        },
+        {
+            "name": "奇闻异事",
+            "type": "anecdote"
+        },
+        {
+            "name": "movie",
+            "type": "movie",
+            "icon": "shni shn-video-fill"
+        },
+        {
+            "name": "git",
+            "type": "git"
+        },
+        {
+            "name": "工具",
+            "type": "git"
+        }
+    ],
+    "blog": [{
+            "title": "生如夏花 - 朴树",
+            "tag": [{
+                "name": "music",
+                "type": "music",
+                "icon": "say-my-life-i say-my-life-i-musicnote"
+            }],
+            "url": "/blog/music/ShengRuXiaHua.html",
+            "date": "2021/06/05 21:29:55",
+            "dir": false,
+            "top": true
+        },
+        {
+            "title": "15 张精美动图全面讲解 CORS",
+            "tag": [{
+                    "name": "javascript",
+                    "type": ""
+                },
+                {
+                    "name": "转",
+                    "type": "info"
+                }
+            ],
+            "url": "/blog/other/CORS.html",
+            "date": "2020/08/03 15:10:37",
+            "dir": true,
+            "top": false
+        }
+    ]
+}
