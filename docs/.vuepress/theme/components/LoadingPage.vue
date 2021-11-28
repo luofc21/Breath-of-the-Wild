@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="loading-page" v-if="show">
       <div class="loading-box">
-        <p class="f-styl">LFC正在赶来啦</p>
+        <p class="f-styl">LFC正在赶来啦!</p>
       </div>
     </div>
   </transition>
@@ -31,8 +31,8 @@ export default {
   background: #eee;
 
   .loading-box {
-    width: 50px;
-    height: 50px;
+    width: 159px;
+    height: 176px;
     margin: auto;
     position: absolute;
     left: 0;
@@ -41,43 +41,68 @@ export default {
     bottom: 0;
     &:before {
       content: '';
-      width: 50px;
+      width: 159px;
       height: 5px;
       background: #000;
       opacity: 0.1;
       position: absolute;
-      top: 59px;
+      top: 186px;
       left: 0;
       border-radius: 50%;
       animation: shadow 0.5s linear infinite;
     }
     &:after {
       content: '';
-      width: 50px;
-      height: 50px;
-      background: #df4040;
-      animation: animate 0.5s linear infinite;
+      width: 159px;
+      height: 176px;
+      background: url('../../public/img/Luffy.png');
+      animation: luffy 2s steps(4) infinite;
+      border-radius: 20%;
       position: absolute;
       top: 0;
       left: 0;
-      border-radius: 3px;
+      // border-radius: 3px;
     }
 
     p {
       position: absolute;
-      bottom: -100px;
-      margin-left: -50px;
+      bottom: -80px;
       left: 50%;
-
+      transform: translateX(-50%);
+      text-align: center;
       white-space: nowrap;
       font-size: 20px;
     }
 
-    // .f-styl {
-    //   // font-family: 'Times New Roman', Times, serif;
-    //   // font-style: normal;
-    //   // font-weight: bold;
-    // }
+    .f-styl {
+      // font-family: 'Times New Roman', Times, serif;
+      // font-style: normal;
+      // font-weight: bold;
+      letter-spacing: 2px;
+    }
+  }
+
+  .loading-luffy {
+    width: 159px;
+    height: 176px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: url('../../public/img/Luffy.png');
+    animation: luffy 0.5 step(4) infinite;
+  }
+
+  @keyframes luffy {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -781px 0;
+    }
   }
 
   @keyframes animate {

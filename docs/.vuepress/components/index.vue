@@ -420,6 +420,11 @@ export default {
       width: 7rem;
       margin-right: 40px;
       border-radius: 50%;
+      transform: rotate(0); // 头像转动step1
+      transition: all ease 1s;
+      &:hover {
+        transform: rotate(360deg);  // 头像转动step2
+      }
     }
   }
 
