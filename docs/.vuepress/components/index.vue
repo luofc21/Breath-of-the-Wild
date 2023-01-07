@@ -6,14 +6,21 @@
     >
       <!-- :style="{'background-image':`url(https://cdn1.zzzmh.cn/img/3a1a0cde1d0a.jpg!fullwp)`}" -->
       <!-- :style="{'background-image':`url(https://cdn.chenyingshuang.cn/index/bg${bannerBg}.jpg)`}" -->
-      <img alt src="../public/img/WeChatAvatar.jpg" />
+      <div class="scroll">
+        <img alt src="../public/img/WeChatAvatar.jpg" class="avatar-img1"/>
 
-      <div>
-        <h1>持续努力的LFC</h1>
-        <p>永远相信美好的事情会发生</p>
+        <div>
+          <h1>持续努力的LFC</h1>
+          <p >{{motto}}<span class="motto" v-if="showMottoFlash"></span></p>
+        </div>
+      </div>
+       <div class='headertop-down animated'>
+          <a href="#main-content"><img alt="" src="../public/img/down.png" width="32px" height="32px" class="downPage-img"></a>
       </div>
     </div>
-    <main>
+   
+    
+    <main id="main-content">
       <main v-loading="loading">
         <div>
           <div
@@ -184,7 +191,11 @@ export default {
           content: '一点一点记录遇到的问题，让自己思路更清晰',
           bg: 'https://cmall-luofc.oss-cn-shenzhen.aliyuncs.com/myblog/v9-9527w.jpg'
         }
-      ]
+      ],
+      motto: '',
+      timer: '',
+      timer1:'',
+      showMottoFlash: true
     }
   },
   watch: {
@@ -234,13 +245,41 @@ export default {
     this.bannerBg = Math.floor(Math.random() * 4 + 1)
     this.loveTime()
     this.getInfo()
+    
+    this.timer1 = setTimeout(()=>{this.showMotto()},2000)
+    
   },
   destroyed() {
     document
       .querySelectorAll('header.navbar')[0]
       .setAttribute('class', 'navbar index')
+      clearTimeout(this.timer)
+      clearTimeout(this.timer1)
+     
   },
   methods: {
+    downPage(){},
+    showMotto(){
+      let mtRepo = [
+        "水光潋滟晴方好，山色空蒙雨亦奇",
+        "相看两不厌，唯有敬亭山",
+        "Stay hungry, stay foolish"
+      ]
+      let mt = mtRepo[Math.floor(Math.random() * mtRepo.length)]
+      let mtArr = mt.split("")
+      let index = 0
+      let self = this
+      function writing() {
+        if(index < mtArr.length){
+          self.motto += mtArr[index++]
+          self.timer = setTimeout(writing, 300)
+        }else {
+          self.$nextTick(()=>{ self.showMottoFlash = false})
+        }
+      }
+      writing()
+      // this
+    },
     getInfo() {
       this.loading = true
       let _this = this
@@ -395,43 +434,123 @@ export default {
 .index-wrap {
   .banner-wrap {
     width: 100%;
-    height: 600px;
+    height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    > div {
-      color: #fff;
-      text-align: center;
-      letter-spacing: 5px;
-      text-indent: 5px;
-      h1 {
-        font-size: 2rem;
+    .scroll {
+      margin-top: 300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      > div {
+        width: 350px ;
+        color: #fff;
+        text-align: center;
+        letter-spacing: 1px;
+        text-indent: 5px;
+        h1 {
+          font-size: 2rem;
+        }
+        p {
+          margin-top: 30px;
+          font-size: 1.2rem;
+          .motto::after {
+            content: "__";
+            // width:20px;
+            color:#fff;
+            font-weight: 900;
+            animation: blink 0.6s infinite;
+          }
+        }
       }
-      p {
-        margin-top: 30px;
-        font-size: 1.2rem;
+      .avatar-img1 {
+        width: 7rem;
+        margin-right: 40px;
+        border-radius: 50%;
+        transform: rotate(0); // 头像转动step1
+        transition: all ease 1s;
+        &:hover {
+          transform: rotate(360deg);  // 头像转动step2
+        }
       }
     }
+    
 
-    img {
-      width: 7rem;
-      margin-right: 40px;
-      border-radius: 50%;
-      transform: rotate(0); // 头像转动step1
-      transition: all ease 1s;
-      &:hover {
-        transform: rotate(360deg);  // 头像转动step2
+    
+
+    .headertop-down {
+      // position: absolute;
+      // bottom: 80px;
+      // left: 50%;
+      margin-top: 280px;
+      cursor: pointer;
+      z-index: 90;
+      animation: float 2s linear infinite;
+      .downPage-img{
+          font-size: 32px;
+          color: #fff;
+          -ms-transform: scale(1.5,1);
+          -webkit-transform: scale(1.5,1);
+          transform: scale(1.5,1)
+      }
+    }
+    @-webkit-keyframes float {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0)
+        }
+    
+        50% {
+            -webkit-transform: translateY(-6px);
+            transform: translateY(-6px)
+        }
+    
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0)
+        }
+    }
+    
+    @keyframes float {
+        0% {
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0)
+        }
+    
+        50% {
+            -webkit-transform: translateY(-8px);
+            -ms-transform: translateY(-8px);
+            transform: scale(1.2, 1.2) translateY(-8px)
+        }
+    
+        100% {
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0)
+        }
+    }
+    @keyframes blink{
+      from{
+          opacity: 0;
+      }
+      to{
+          opacity: 1;
       }
     }
   }
+ 
 
   > main {
     width: 1200px;
     margin: 0 auto;
-    padding: 30px 24px;
+    padding: 88px 24px 30px 24px;
     display: flex;
     main {
       width: calc(75% - 15px);
@@ -632,6 +751,10 @@ export default {
     }
   }
 }
+
+// #main-content {
+//   margin-top: 58px;
+// }
 
 @media screen and (orientation: portrait) and (max-width: 720px) {
   .index-wrap {

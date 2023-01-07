@@ -1,13 +1,33 @@
 <template>
   <transition name="fade">
-    <div class="loading-page" v-if="show">
-      <div class="loading-box">
-        <p class="f-styl">LFC正在赶来啦!</p>
+    <!-- <particles></particles> -->
+      <div id="loading-page" class="loading-page" v-if="show">
+         <vue-particles
+          :clickEffect="true"
+          :hoverEffect="true"
+          :lineLinked="true"
+          :lineOpacity="0.4"
+          :linesDistance="150"
+          :linesWidth="1"
+          :moveSpeed="1"
+          :particleOpacity="0.7"
+          :particleSize="4"
+          :particlesNumber="80"
+          clickMode="push"
+          color="#ccc"
+          hoverMode="grab"
+          linesColor="#aaa"
+          shapeType="star"
+          style="height:100%"
+        ></vue-particles>
+        <div class="loading-box">
+          <p class="f-styl">LFC正在赶来啦!</p>
+        </div>
       </div>
-    </div>
   </transition>
 </template>
 <script>
+// import Particles from '../../components/base/particles.vue'
 export default {
   props: {
     show: {
@@ -17,6 +37,9 @@ export default {
   },
   data() {
     return {}
+  },
+  components: {
+    // Particles,
   }
 }
 </script>

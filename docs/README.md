@@ -1,4 +1,5 @@
 ---
+# 主题首页。---这种yaml font matter配置可以同时出现在其它文件中---
 home: true
 pageClass: index
 # heroImage: /img/blog-logo.png

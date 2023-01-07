@@ -26,6 +26,8 @@
       <slot #bottom name="page-bottom" />
     </Page>
 
+    <!-- <Suspensoin class="menu-suspension"/> -->
+
     <div class="record-wrap" v-if="pageVisible">
       <!-- <a href="http://beian.miit.gov.cn/">粤ICP备xxxxxxxx号</a> -->
       <div class="avatar-info">
@@ -46,9 +48,10 @@ import { resolveSidebarItems } from '../util'
 import LoadingPage from '../components/LoadingPage.vue'
 import Lock from '../components/Lock.vue'
 import HidePassword from '../components/HidePassword.vue'
+import Suspensoin from '../components/Suspensoin.vue'
 
 export default {
-  components: { Home, Page, Sidebar, Navbar, LoadingPage, Lock, HidePassword },
+  components: { Home, Page, Sidebar, Navbar, LoadingPage, Lock, HidePassword, Suspensoin },
 
   data() {
     return {
@@ -130,7 +133,7 @@ export default {
 
     setTimeout(() => {
       _this.loading = false
-    }, 2000)
+    }, 2000) //登录页只显示2s
   },
 
   methods: {
@@ -191,6 +194,12 @@ export default {
 }
 </script>
 <style lang="scss">
+.menu-suspension {
+  position: absolute;
+  bottom: 10%;
+  right: 20px;
+  z-index: 101;
+}
 .record-wrap {
   z-index: 9998;
   position: relative;
