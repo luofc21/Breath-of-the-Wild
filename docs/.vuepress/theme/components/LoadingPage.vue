@@ -21,7 +21,7 @@
           style="height:100%"
         ></vue-particles>
         <div class="loading-box">
-          <p class="f-styl">LFC正在赶来啦!</p>
+          <p class="f-styl">小抄正在赶来啦!</p>
         </div>
       </div>
   </transition>

@@ -34,11 +34,46 @@
       "unicode_decimal": 59330
     },
     {
+      "icon_id": "446871",
+      "name": "生活",
+      "font_class": "shenghuo",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
+      "icon_id": "648756",
+      "name": "笔记",
+      "font_class": "biji",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "666891",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "6665569",
+      "name": "游戏",
+      "font_class": "airudiantubiaohuizhi-zhuanqu_youxi",
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
       "icon_id": "7834345",
       "name": "plus",
       "font_class": "plus",
       "unicode": "e8fe",
       "unicode_decimal": 59646
+    },
+    {
+      "icon_id": "26237601",
+      "name": "邮件、查看邮件、发送邮件、收邮件-01",
+      "font_class": "a-youjianchakanyoujianfasongyoujianshouyoujian-01",
+      "unicode": "e917",
+      "unicode_decimal": 59671
     }
   ]
 }

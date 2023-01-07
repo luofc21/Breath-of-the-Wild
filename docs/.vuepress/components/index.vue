@@ -10,7 +10,7 @@
         <img alt src="../public/img/WeChatAvatar.jpg" class="avatar-img1"/>
 
         <div>
-          <h1>持续努力的LFC</h1>
+          <h1>持续努力的小抄</h1>
           <p >{{motto}}<span class="motto" v-if="showMottoFlash"></span></p>
         </div>
       </div>
@@ -61,7 +61,7 @@
             <el-avatar :size="80">
               <img src="https://cmall-luofc.oss-cn-shenzhen.aliyuncs.com/myblog/WeChatAvatar.jpg"/>
             </el-avatar>
-            <p>持续努力的LFC</p>
+            <p>小抄快写</p>
           </div>
           <div class="data-info">
             <div @click="$router.push('/blog/Archives.html')" class="data-info-item">
@@ -263,7 +263,7 @@ export default {
       let mtRepo = [
         "水光潋滟晴方好，山色空蒙雨亦奇",
         "相看两不厌，唯有敬亭山",
-        "Stay hungry, stay foolish"
+        "竹杖芒鞋轻胜马，一说烟雨任平生"
       ]
       let mt = mtRepo[Math.floor(Math.random() * mtRepo.length)]
       let mtArr = mt.split("")
