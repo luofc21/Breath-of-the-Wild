@@ -137,14 +137,14 @@
         class="bg"
       ></div> -->
       <div class="footer-wrap">
-        <div class="copyright">By LFC</div>
+        <div class="copyright">By luofc</div>
         <div class="framework-info">
           <span>Power by</span>
           <a href="https://vuepress.vuejs.org/zh/" rel="noopener" target="_blank">
             <span>Vuepress</span>
           </a>
           &
-          <a href="http://beian.miit.gov.cn/" style="font-size:14px">©2021 </a> <!--粤ICP备xxxxxxxx号-->
+          <a href="http://beian.miit.gov.cn/" style="font-size:14px" target="_blank">粤ICP备2024166200号 </a> <!--粤ICP备xxxxxxxx号-->
         </div>
       </div>
     </footer>
@@ -263,7 +263,7 @@ export default {
       let mtRepo = [
         "水光潋滟晴方好，山色空蒙雨亦奇",
         "相看两不厌，唯有敬亭山",
-        "竹杖芒鞋轻胜马，一说烟雨任平生"
+        "竹杖芒鞋轻胜马，一蓑烟雨任平生"
       ]
       let mt = mtRepo[Math.floor(Math.random() * mtRepo.length)]
       let mtArr = mt.split("")

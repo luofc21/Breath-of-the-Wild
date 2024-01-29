@@ -120,7 +120,7 @@ export default {
   height: auto;
   min-width: 300px;
   max-height: 350px;
-  background: #f4f4f4;
+  // background: #f4f4f4;
   padding: 1rem 1.2rem;
   header {
     height: 45px;
@@ -146,8 +146,10 @@ export default {
       word-wrap: normal;
       white-space: nowrap;
       text-overflow: ellipsis;
+      border-left: 1px solid #eaecef;
+      padding-left: 10px;
       > a {
-        font-weight: 600;
+        font-weight: 400;
       }
       .directory-h4-ul {
         line-height: 2;

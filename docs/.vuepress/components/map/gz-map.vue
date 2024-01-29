@@ -13,32 +13,8 @@ export default {
 
       address: [
         // ['伦敦', 0.150000, 51.300000],
-        ['香港', 114.186000, 22.250000],
-        ['澳门', 113.575050, 22.150130],
-        
-
-        // '广东省广州市',
-        '广东省深圳市',
-        '广东省韶关市',
-        '广东省佛山市',
-        '广东省中山市',
-        '广东省珠海市',
-        '广东省江门市',
-        '广东省阳江市',
-        '广东省湛江市',
-        '北京市',
-        '重庆市解放碑',
-        '上海市',
-        '浙江省杭州市',
-        '浙江省嘉兴市',
-        '湖南省长沙市',
-        '湖南省株洲市',
-        '湖南省衡阳市',
-        '江苏省南京市',
-        '云南省昆明市',
-        '山东省临沂市',
-        '广西省北海市',
-        // '澳门特别行政区'
+        ['车陂', 113.400383,23.130074, '地址：广东省广州市天河区中山大道中6号2楼'],
+        ['大学城', 113.40094,23.060363, '地址：广东省广州市番禺区大学城内环东路']
       ],
       localAddress: [
         '广东省广州市'
@@ -51,30 +27,43 @@ export default {
       let _this = this
       _this.loadScript('XX997fp9jKEMv6p70M8lB4i4jIq3npRu').then(BMap => {
         var map = new BMap.Map('map')
-        var point = new BMap.Point(111.19, 32.26)
-        map.centerAndZoom(point, 6)
+        var point = new BMap.Point(113.331608,23.1435)
+        map.centerAndZoom(point, 13)
         map.addControl(
           new BMap.NavigationControl({ type: BMAP_NAVIGATION_CONTROL_SMALL })
         )
         map.enableScrollWheelZoom(true)
         map.enableDoubleClickZoom(true)
-        map.setMapStyleV2({
-          styleId: 'ea7b8a5ea93d9e2b21ee89764a227c4a'
-        })
+        // map.setMapStyleV2({
+        //   styleId: 'ea7b8a5ea93d9e2b21ee89764a227c4a'
+        // })
 
-        const deviceSize = new BMap.Size(17, 17) //图标大小
-        function addMarker(point) {
+        const deviceSize = new BMap.Size(24, 24) //图标大小
+        function addMarker(point, tipInfo) {
           // 创建图标对象
-          var myIcon = new BMap.Icon(star, deviceSize, {
+          var myIcon = new BMap.Icon(starRed, deviceSize, {
             imageSize: deviceSize
           })
           // 创建标注对象并添加到地图
           var marker = new BMap.Marker(point, { icon: myIcon })
           map.addOverlay(marker)
+          if (tipInfo) {
+            // 创建信息窗口
+            var opts = {
+              width: 200,
+              height: 100,
+              title: tipInfo.title
+            };
+            var infoWindow = new BMap.InfoWindow(tipInfo.content, opts);
+            // 点标记添加点击事件
+            marker.addEventListener('click', function () {
+                map.openInfoWindow(infoWindow, point); // 开启信息窗口
+            });
+          }
         }
         function addPoint(data) {
           let point = new BMap.Point(data[1], data[2])
-          addMarker(point)
+          addMarker(point, { title: data[0], content: data[3] })
         }
 
         let myGeo = new BMap.Geocoder()
@@ -90,24 +79,7 @@ export default {
           }
         }
 
-        //添加广州坐标 
-        function addMarker1(point) {
-          // 创建图标对象
-          var myIcon1 = new BMap.Icon(starRed, deviceSize, {
-            imageSize: deviceSize
-          })
-          // 创建标注对象并添加到地图
-          var marker1 = new BMap.Marker(point, { icon: myIcon1 })
-          map.addOverlay(marker1)
-        }
-        let myGeo1 = new BMap.Geocoder()
-        for (let i = 0; i < _this.localAddress.length; i++) {
-            myGeo1.getPoint(_this.localAddress[i], function(point) {
-              if (point) {
-                addMarker1(point)
-              }
-            })
-        }
+      
       })
     })
   },

@@ -29,10 +29,10 @@
     <!-- <Suspensoin class="menu-suspension"/> -->
 
     <div class="record-wrap" v-if="pageVisible">
-      <!-- <a href="http://beian.miit.gov.cn/">粤ICP备xxxxxxxx号</a> -->
+      <a href="http://beian.miit.gov.cn/"  target="_blank">粤ICP备2024166200号</a>
       <div class="avatar-info">
         <i class="shni shn-heart-fill"></i>
-        <span class="copyright">By LFC</span>
+        <span class="copyright">By luofc</span>
       </div>
       
     </div>

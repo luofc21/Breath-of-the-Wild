@@ -2,9 +2,9 @@
 pageClass: diary
 ---
 
-## VsCode 常用插件
+## VS Code
 
-### 
+### 通用插件
 Chinese (Simplified) Language Pack for Visual Studio Code - 中文（简体）语言包 <br>
 Import Cost - 导入文件大小<br>
 vscode-fileheader - 自动记录文件修改时间 - CTRL+ALT+I<br>

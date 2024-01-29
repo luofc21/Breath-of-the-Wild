@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="train-ticket">
     <p>
       <span class="id">{{id}}</span>
@@ -297,4 +297,4 @@ export default {
     width: 350px;
   }
 }
-</style>
+</style> -->

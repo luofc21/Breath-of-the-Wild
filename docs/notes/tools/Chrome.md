@@ -2,7 +2,7 @@
 pageClass: diary
 ---
 
-## Chrome 骚操作
+## Chrome
 
 ### 长页面截图
 ```
