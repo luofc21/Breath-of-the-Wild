@@ -1,39 +1,52 @@
-# 建立一个名为CI的工作流
-name: CI
-​
-# 监听main上的push事件
+# Sample workflow for building and deploying a Gatsby site to GitHub Pages
+#
+# To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
+#
+name: Deploy Gatsby site to Pages
+
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches: [ main ]
-​
-# 开始任务
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: false
+
+# Default to bash
+# defaults:
+#   run:
+#     shell: bash
+
 jobs:
-  # 建立一个名为 build 的job
+  # Build job
   build:
-    # 在最新的乌班图环境进行工作
-    runs-on: ubuntu-latest
-​
-    # 开始设置构建步骤
-    steps:
-    # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
-    - uses: actions/checkout@v2
-​
-    # 命名这个步骤为构建Build
-    - name: Build
-      // 运行 安装和打包任务
-      run: npm install && npm run build
-​
-    # 命名这个任务为发布Deploy
-    - name: Deploy
-      # 因为构建之后，需要把代码上传到服务器上，所以需要连接到ssh，并且做一个拷贝操作
-      uses: cross-the-world/scp-pipeline@master
-      env:
-        WELCOME: "ssh scp ssh pipelines"
-        LASTSSH: "Doing something after copying"
-      with:
-        host: ${{ secrets.TG_HOST }}
-        user: ${{ secrets.TG_USER }}
-        pass: ${{ secrets.TG_PASS }}
-        connect_timeout: 10s
-        local: './dist/*'
-        remote: /usr/share/nginx/html
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: npm install && npm run build
+      - name: Deploy
+        uses: cross-the-world/scp-pipeline@master
+        env:
+          WELCOME: "ssh scp ssh pipelines"
+          LASTSSH: "Doing something after copying"
+        with:
+          host: ${{ secrets.TG_HOST }}
+          user: ${{ secrets.TG_USER }}
+          pass: ${{ secrets.TG_PASS }}
+          connect_timeout: 10s
+          local: './dist/*'
+          remote: /usr/share/nginx/html
