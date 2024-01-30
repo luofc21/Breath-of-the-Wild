@@ -1,8 +1,8 @@
 ### This is my life 🥳
 
-See more content from [my blog](https://www.sanghangning.cn)
+See more content from [my blog](https://home.luofcmax.cn)
 
-[![ShnHz's github stats](https://github-readme-stats.vercel.app/api?username=ShnHz&show_icons=true&include_all_commits=true)](https://github.com/ShnHz)
+[![luofc21's github stats](https://github-readme-stats.vercel.app/api?username=luofc21&show_icons=true&include_all_commits=true)](https://github.com/luofc21)
 
 <!-- #
 ### - 新增blog
