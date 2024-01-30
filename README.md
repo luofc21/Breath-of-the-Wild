@@ -1,8 +1,8 @@
-### This is my life 🥳
+### A homepage to share something interesting about my job and my life.
 
-See more content from [my blog](https://home.luofcmax.cn)
+<!-- See more content from [my blog](https://home.luofcmax.cn)
 
-[![luofc21's github stats](https://github-readme-stats.vercel.app/api?username=luofc21&show_icons=true&include_all_commits=true)](https://github.com/luofc21)
+[![luofc21's github stats](https://github-readme-stats.vercel.app/api?username=luofc21&show_icons=true&include_all_commits=true)](https://github.com/luofc21) -->
 
 <!-- #
 ### - 新增blog
